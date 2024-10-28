@@ -1,7 +1,5 @@
-import {expect } from '@playwright/test';
 import test from '../utils/Pages'
 import {Employee} from "../utils/employees/Employee";
-import {EmployeesPage} from "../pages/EmployeesPage";
 
 test.describe( 'Tests with user 1 auth', () => {
   test.use({ storageState: (process.env.CI ? process.env.CI_PROJECT_DIR + '/playwright/' : '') + 'tests/.auth/user_1.json' });

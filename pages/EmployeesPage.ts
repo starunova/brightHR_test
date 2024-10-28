@@ -1,6 +1,5 @@
 import type {Page} from '@playwright/test'
 import {expect, Locator} from '@playwright/test'
-import {HomePage} from "./HomePage";
 import {Employee} from "../utils/employees/Employee";
 
 export class EmployeesPage {

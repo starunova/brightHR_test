@@ -2,9 +2,9 @@ import {test as setup, expect} from '@playwright/test';
 import {user_1} from "../utils/authentification/testUsers";
 import {testConfig} from "../testConfig";
 
-function delay(ms: number) {
+/*function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
-}
+}*/
 
 const user_1_file = (process.env.CI ? process.env.CI_PROJECT_DIR + '/playwright/' : '') + 'tests/.auth/user_1.json';
 
