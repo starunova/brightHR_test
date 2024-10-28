@@ -22,7 +22,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests for Employee
       run: ENV=sandbox npx playwright test employee.management.spec.ts --workers 6 --project=Chrome
-    - uses: actions/upload-artifact@v4
+    - name: Archive Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
       with:
         name: playwright-report
         path: playwright-report/
