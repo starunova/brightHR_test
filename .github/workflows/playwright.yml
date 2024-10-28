@@ -18,10 +18,10 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm install
-    - name: Install Playwright Chrome Browser
+    - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests for Employee
-      run: ENV=$ENV npx playwright test employee.management.spec.ts --workers 6 --project=$PROJECT
+      run: ENV=sandbox npx playwright test employee.management.spec.ts --workers 6 --project=Chrome
     - uses: actions/upload-artifact@v4
       with:
         name: playwright-report
