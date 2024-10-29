@@ -56,13 +56,13 @@ export class EmployeesPage {
         await this.emailInput.fill(employee.email)
         if (employee.registrationEmail==true) {
             if (!await this.registrationEmailCheckbox.isChecked()) {
-                await this.registrationEmailCheckbox.check()
+                await this.registrationEmailCheckbox.evaluate((node: HTMLElement) => node.click())
                 await expect(this.registrationEmailCheckbox).toBeChecked();
             }
         }
         if (employee.registrationEmail==false) {
             if (await this.registrationEmailCheckbox.isChecked()) {
-                await this.registrationEmailCheckbox.uncheck()
+                await this.registrationEmailCheckbox.evaluate((node: HTMLElement) => node.click())
                 expect(await this.registrationEmailCheckbox.isChecked()).toBeFalsy();
             }
         }
