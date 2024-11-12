@@ -54,15 +54,15 @@ export class EmployeesPage {
         await this.lastNameInput.fill(employee.lastName)
         await expect(this.emailInput).toBeEditable()
         await this.emailInput.fill(employee.email)
-        if (employee.registrationEmail) {
+        if (employee.registrationEmail==true) {
             if (!await this.registrationEmailCheckbox.isChecked()) {
-                await this.registrationEmailCheckbox.check()
+                await this.registrationEmailCheckbox.evaluate((node: HTMLElement) => node.click())
                 await expect(this.registrationEmailCheckbox).toBeChecked();
             }
         }
         if (employee.registrationEmail==false) {
-            if (!await this.registrationEmailCheckbox.isChecked()) {
-                await this.registrationEmailCheckbox.uncheck()
+            if (await this.registrationEmailCheckbox.isChecked()) {
+                await this.registrationEmailCheckbox.evaluate((node: HTMLElement) => node.click())
                 expect(await this.registrationEmailCheckbox.isChecked()).toBeFalsy();
             }
         }
